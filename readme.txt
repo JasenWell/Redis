@@ -1,0 +1,41 @@
+﻿
+#下载地址  https://github.com/MicrosoftArchive/redis/releases
+
+
+修改redis.windows.conf文件，设置maxmemory 大小    # redis.windows-service.conf 文件也需要修改?
+maxmemory 1024*1024*100  # 100mb
+requirepass 123456
+
+cmd中进入redis安装路径输入命令 redis-server.exe redis.windows.conf
+因为修改了配置文件，抛异常：creating server tcp listening socket 127.0.0.1:6379:bind:no error
+输入命令： redis-cli -a 密码 后执行shutdown 后执行quit 重新执行redis-server.exe redis.windows.conf 成功
+
+将redis加入到windows的服务中
+安装命令: redis-server.exe --service-install redis.windows.conf --loglevel verbose 使用命令，
+因为前面已经加入服务，需要先卸载服务，执行命令redis-server --service-uninstall
+重新执行命令 redis-server.exe --service-install redis.windows.conf --loglevel verbose  可以不执行前面的操作，直接执行这个??
+
+然后可以用下面的命令执行启动或停止
+卸载服务：redis-server --service-uninstall
+开启服务：redis-server --service-start
+停止服务：redis-server --service-stop
+重命名服务：redis-server --service-name name
+重命名服务，需要写在前三个参数之后，例如：
+The following would install and start three separate instances of Redis as a service:   
+以下将会安装并启动三个不同的Redis实例作服务：
+
+redis-server --service-install --service-name redisService1 --port 10001
+redis-server --service-start --service-name redisService1
+
+redis-server --service-install --service-name redisService2 --port 10002
+redis-server --service-start --service-name redisService2
+
+redis-server --service-install --service-name redisService3 --port 10003
+redis-server --service-start --service-name redisService3
+
+
+# https://www.cnblogs.com/javabg/p/9133206.html 参考
+#  https://www.jianshu.com/p/6895384d2b9e redis desktop manager下载安装使用
+
+python redis 操作参考 https://www.jianshu.com/p/b85c04bef5e7 https://www.php.cn/python-tutorials-356574.html
+Python操作redis集群 https://www.jianshu.com/p/d38902ba5698 
