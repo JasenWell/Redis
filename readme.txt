@@ -2,13 +2,14 @@
 #下载地址  https://github.com/MicrosoftArchive/redis/releases
 
 
-修改redis.windows.conf文件，设置maxmemory 大小    # redis.windows-service.conf 文件也需要修改?
+修改redis.windows.conf文件，设置maxmemory 大小    # redis.windows-service.conf 文件也需要修改(如果是安装在系统服务中)
 maxmemory 1024*1024*100  # 100mb
 requirepass 123456
 
 cmd中进入redis安装路径输入命令 redis-server.exe redis.windows.conf
 因为修改了配置文件，抛异常：creating server tcp listening socket 127.0.0.1:6379:bind:no error
 输入命令： redis-cli -a 密码 后执行shutdown 后执行quit 重新执行redis-server.exe redis.windows.conf 成功
+# 也可以输入 redis-cli -h 127.0.0.1 -p 6379 -a 密码 进入后可执行info replication 查看状态
 
 将redis加入到windows的服务中
 安装命令: redis-server.exe --service-install redis.windows.conf --loglevel verbose 使用命令，
@@ -42,3 +43,12 @@ redis-server --service-start --service-name redisService3
 
 python redis 操作参考 https://www.jianshu.com/p/b85c04bef5e7 https://www.php.cn/python-tutorials-356574.html
 Python操作redis集群 https://www.jianshu.com/p/d38902ba5698 
+集群参考:
+ http://www.imooc.com/article/257706?block_id=tuijian_wz
+ https://www.cnblogs.com/Yang2012/p/8078644.html
+ https://blog.csdn.net/weixin_41846320/article/details/83753182  redis+sentinel
+ https://blog.csdn.net/weixin_41846320/article/details/83753667  主从复制
+ https://blog.csdn.net/weixin_41846320/article/details/83654766 redis+cluster
+ 
+ 集群需要拷贝redis安装后的文件夹，可重命名slave_6380  slave_6381等
+ 集群从节点文件redis.windows-service.conf  需要开启 slaveof 127.0.0.1 6379 对应主节点的ip 和端口
