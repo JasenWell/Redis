@@ -15,6 +15,9 @@ cmd中进入redis安装路径输入命令 redis-server.exe redis.windows.conf
 因为前面已经加入服务，需要先卸载服务，执行命令redis-server --service-uninstall
 重新执行命令 redis-server.exe --service-install redis.windows.conf --loglevel verbose  可以不执行前面的操作，直接执行这个??
 
+将redis服务添加到windows服务中：redis-server --service-install redis.windows.conf --service-name redis6379 --loglevel verbose
+指定服务名称为redis6379，这样就不会和之前的服务名称冲突，也可以在不删除之前的服务情况下，安装新的redis服务。
+
 然后可以用下面的命令执行启动或停止
 卸载服务：redis-server --service-uninstall
 开启服务：redis-server --service-start
