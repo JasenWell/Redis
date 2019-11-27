@@ -86,7 +86,7 @@ appendonly yes
 	其中 cluster-replicas 1  代表  一个master后有几个slave，1代表为1个slave节点
 	只要服务未卸载就不用重复执行此命令？？
 	
-	错误：Unrecognized option or bad number of args for: ‘-–cluster’ 未解决,还不能创建
+	错误：Unrecognized option or bad number of args for: ‘-–cluster’ 未解决,还不能创建  不能使用127.0.0.1  ？？
 	
 使用Redis客户端Redis-cli.exe来查看数据记录数，以及集群相关信息
 
