@@ -4,6 +4,10 @@
 ::cd master_6379
 ::stop.bat
 
-start /D "D:\Sever\redis\master_6379" stop.bat
-start /D "D:\Sever\redis\slave_6380" stop.bat
-start /D "D:\Sever\redis\slave_6381" stop.bat
+start /D "D:\Service\Redis\master_6379" stop.bat
+start /D "D:\Service\Redis\slave_6380" stop.bat
+start /D "D:\Service\Redis\slave_6381" stop.bat
+
+start /D "D:\Service\Redis\master_6379" stop_sentinel.bat
+start /D "D:\Service\Redis\slave_6380" stop_sentinel.bat
+start /D "D:\Service\Redis\slave_6381" stop_sentinel.bat

@@ -9,7 +9,7 @@ requirepass 123456
 cmd中进入redis安装路径输入命令 redis-server.exe redis.windows.conf
 因为修改了配置文件，抛异常：creating server tcp listening socket 127.0.0.1:6379:bind:no error
 输入命令： redis-cli -a 密码 后执行shutdown 后执行quit 重新执行redis-server.exe redis.windows.conf 成功
-# 也可以输入 redis-cli -h 127.0.0.1 -p 6379 -a 密码 进入后可执行info replication 查看状态
+# 也可以输入 redis-cli -h 127.0.0.1 -p 6379 -a 密码 进入后可执行info replication 查看状态  info sentinel查看哨兵
 
 将redis加入到windows的服务中
 安装命令: redis-server.exe --service-install redis.windows.conf --loglevel verbose 使用命令，
@@ -51,4 +51,6 @@ Python操作redis集群 https://www.jianshu.com/p/d38902ba5698
  https://blog.csdn.net/weixin_41846320/article/details/83654766 redis+cluster
  
  集群需要拷贝redis安装后的文件夹，可重命名slave_6380  slave_6381等
- 集群从节点文件redis.windows-service.conf  需要开启 slaveof 127.0.0.1 6379 对应主节点的ip 和端口
+ 集群从节点文件redis.windows-service.conf  需要开启 slaveof 127.0.0.1 6379 对应主节点的ip 和端口,主节点有密码的还需要开启masterauth 密码
+ 非系统服务方式启动sentinel命令 redis-server.exe sentinel.conf --sentinel 或者 redis-sentinel sentinel.conf
+ sentinel.conf 文件必须ansi格式编码，utf-8会安装出错

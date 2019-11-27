@@ -4,6 +4,10 @@
 ::cd master_6379
 ::uninstall.bat
 
-start /D "D:\Sever\redis\master_6379" uninstall.bat
-start /D "D:\Sever\redis\slave_6380" uninstall.bat
-start /D "D:\Sever\redis\slave_6381" uninstall.bat
+start /D "D:\Service\Redis\master_6379" uninstall.bat
+start /D "D:\Service\Redis\slave_6380" uninstall.bat
+start /D "D:\Service\Redis\slave_6381" uninstall.bat
+
+start /D "D:\Service\Redis\master_6379" uninstall_sentinel.bat
+start /D "D:\Service\Redis\slave_6380" uninstall_sentinel.bat
+start /D "D:\Service\Redis\slave_6381" uninstall_sentinel.bat

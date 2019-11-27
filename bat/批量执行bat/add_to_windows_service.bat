@@ -4,6 +4,10 @@
 ::cd master_6379
 ::add_to_windows_service.bat 
 @echo off
-start /D "D:\Sever\redis\master_6379" add_to_windows_service.bat
-start /D "D:\Sever\redis\slave_6380" add_to_windows_service.bat
-start /D "D:\Sever\redis\slave_6381" add_to_windows_service.bat
+start /D "D:\Service\Redis\master_6379" add_to_windows_service.bat
+start /D "D:\Service\Redis\slave_6380" add_to_windows_service.bat
+start /D "D:\Service\Redis\slave_6381" add_to_windows_service.bat
+::开启哨兵
+start /D "D:\Service\Redis\master_6379" add_to_windows_service_sentinel.bat
+start /D "D:\Service\Redis\slave_6380" add_to_windows_service_sentinel.bat
+start /D "D:\Service\Redis\slave_6381" add_to_windows_service_sentinel.bat

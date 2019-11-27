@@ -4,6 +4,10 @@
 ::cd master_6379
 ::startup.bat
 
-start /D "D:\Sever\redis\master_6379" startup.bat
-start /D "D:\Sever\redis\slave_6380" startup.bat
-start /D "D:\Sever\redis\slave_6381" startup.bat
+start /D "D:\Service\Redis\master_6379" startup.bat
+start /D "D:\Service\Redis\slave_6380" startup.bat
+start /D "D:\Service\Redis\slave_6381" startup.bat
+
+start /D "D:\Service\Redis\master_6379" startup_sentinel.bat
+start /D "D:\Service\Redis\slave_6380" startup_sentinel.bat
+start /D "D:\Service\Redis\slave_6381" startup_sentinel.bat
