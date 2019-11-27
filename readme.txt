@@ -49,6 +49,7 @@ Python操作redis集群 https://www.jianshu.com/p/d38902ba5698
  https://blog.csdn.net/weixin_41846320/article/details/83753182  redis+sentinel
  https://blog.csdn.net/weixin_41846320/article/details/83753667  主从复制
  https://blog.csdn.net/weixin_41846320/article/details/83654766 redis+cluster
+ https://www.cnblogs.com/guolianyu/p/10345387.html redis+cluster
  
  集群需要拷贝redis安装后的文件夹，可重命名slave_6380  slave_6381等
  集群从节点文件redis.windows-service.conf  需要开启 slaveof 127.0.0.1 6379 对应主节点的ip 和端口,主节点有密码的还需要开启masterauth 密码
