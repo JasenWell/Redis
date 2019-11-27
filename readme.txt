@@ -55,3 +55,4 @@ Python操作redis集群 https://www.jianshu.com/p/d38902ba5698
  集群从节点文件redis.windows-service.conf  需要开启 slaveof 127.0.0.1 6379 对应主节点的ip 和端口,主节点有密码的还需要开启masterauth 密码
  非系统服务方式启动sentinel命令 redis-server.exe sentinel.conf --sentinel 或者 redis-sentinel sentinel.conf
  sentinel.conf 文件必须ansi格式编码，utf-8会安装出错
+ sentinel 集群：主节点也需要开启masterauth 密码,否则在节点机下线在重新上线时无法连接
